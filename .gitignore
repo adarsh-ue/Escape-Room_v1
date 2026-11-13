@@ -1,0 +1,8 @@
+# Secrets
+.env
+
+# Python / environments
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

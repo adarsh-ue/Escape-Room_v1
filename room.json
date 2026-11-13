@@ -1,0 +1,52 @@
+{
+  "title": "The Locked Library",
+  "intro": "You wake up on a cold wooden floor. Dust hangs in the lamplight. Tall shelves, a heavy oak desk, an old portrait, a ticking-silent grandfather clock - and a steel door with a glowing keypad. The door is locked. Somewhere in this library is the way out.",
+  "instructions": [
+    "Type what you want to do in plain English, e.g. \"examine the desk\" or \"open the drawer with 1234\".",
+    "Look closely at everything - clues build on each other.",
+    "Items you find go into your inventory (shown in the sidebar).",
+    "Stuck? Ask the Game Master for a hint.",
+    "Use the Restart button in the sidebar to start over."
+  ],
+  "objects": {
+    "desk": {
+      "description": "A heavy oak desk covered in papers. It has one locked drawer.",
+      "on_examine": "Among the papers is a handwritten note: 'Read the spines in the order of the rainbow.'",
+      "items": ["note"]
+    },
+    "bookshelf": {
+      "description": "A tall bookshelf full of dusty leather books.",
+      "on_examine": "Four books stand out with coloured spines: green, red, yellow and blue. Each spine has a single handwritten number: green 5, red 2, yellow 9, blue 6."
+    },
+    "drawer": {
+      "description": "A locked drawer in the desk with a 4-digit combination lock.",
+      "locked": true,
+      "unlock_with": "code 2956",
+      "on_unlock": "The drawer clicks open. Inside are a small brass key and a magnifying glass.",
+      "items": ["brass key", "magnifying glass"]
+    },
+    "painting": {
+      "description": "A portrait of a stern old librarian in a gilded frame.",
+      "on_examine": "Near the bottom corner there is some writing, but it is far too small to read with the naked eye.",
+      "on_examine_with_magnifying_glass": "Through the magnifying glass the tiny writing reads: 'Time remembers the code.'"
+    },
+    "clock": {
+      "description": "A tall grandfather clock. Its glass case is locked with a small brass keyhole. The clock is not ticking.",
+      "locked": true,
+      "unlock_with": "brass key",
+      "on_unlock": "The brass key turns and the case swings open. The clock hands are frozen at exactly 4:18."
+    },
+    "door": {
+      "description": "A steel door with a glowing 4-digit keypad. It is the only exit.",
+      "locked": true,
+      "unlock_with": "code 0418",
+      "on_unlock": "The keypad flashes green, the bolts slide back and the door swings open. Fresh air rushes in - you are free!"
+    }
+  },
+  "puzzles": [
+    {"id": "bookshelf_code", "solution": "Order the book numbers by rainbow colour (red, yellow, green, blue) = 2956. Opens the drawer."},
+    {"id": "painting_message", "solution": "Read the painting with the magnifying glass: 'Time remembers the code.' Points to the clock."},
+    {"id": "clock_time", "solution": "Open the clock with the brass key. The hands show 4:18, so the door code is 0418."}
+  ],
+  "final_challenge": "Enter 0418 on the door keypad to escape."
+}
